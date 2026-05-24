@@ -1,0 +1,9 @@
+title: Rockhold
+description: Legal documents for the Rockhold open beta.
+baseurl: "/rockhold-legal"
+url: "https://a-parfenov.github.io"
+markdown: kramdown
+theme: null
+exclude:
+  - README.md
+

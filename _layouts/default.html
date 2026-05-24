@@ -1,0 +1,241 @@
+{% assign is_ru = false %}
+{% if page.lang == 'ru' %}
+  {% assign is_ru = true %}
+{% endif %}
+{% assign document_key = page.document_key | default: 'home' %}
+{% case document_key %}
+{% when 'privacy' %}
+  {% assign en_url = '/privacy/' %}
+  {% assign ru_url = '/ru/privacy/' %}
+{% when 'terms' %}
+  {% assign en_url = '/terms/' %}
+  {% assign ru_url = '/ru/terms/' %}
+{% else %}
+  {% assign en_url = '/' %}
+  {% assign ru_url = '/ru/' %}
+{% endcase %}
+{% if is_ru %}
+  {% assign home_url = '/ru/' %}
+  {% assign privacy_url = '/ru/privacy/' %}
+  {% assign terms_url = '/ru/terms/' %}
+  {% assign privacy_label = 'Политика' %}
+  {% assign terms_label = 'Условия' %}
+  {% assign nav_label = 'Юридические документы' %}
+  {% assign language_label = 'Язык' %}
+  {% assign footer_text = 'Юридические документы открытой беты Rockhold. Последнее обновление: 24 мая 2026 г.' %}
+{% else %}
+  {% assign home_url = '/' %}
+  {% assign privacy_url = '/privacy/' %}
+  {% assign terms_url = '/terms/' %}
+  {% assign privacy_label = 'Privacy' %}
+  {% assign terms_label = 'Terms' %}
+  {% assign nav_label = 'Legal documents' %}
+  {% assign language_label = 'Language' %}
+  {% assign footer_text = 'Rockhold open beta legal documents. Last updated May 24, 2026.' %}
+{% endif %}
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f5f1;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #5f6368;
+      --line: #d9d4cc;
+      --accent: #245e4f;
+      --accent-soft: #e1eee9;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121412;
+        --surface: #1b1f1c;
+        --text: #f4f1ec;
+        --muted: #c0b8ad;
+        --line: #393f3a;
+        --accent: #8fd1bb;
+        --accent-soft: #1f332d;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header,
+    main,
+    footer {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 750;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    nav a,
+    .button-link {
+      color: var(--accent);
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    nav a[aria-current="page"] {
+      color: var(--text);
+    }
+
+    .language-switch {
+      display: inline-flex;
+      padding: 3px;
+      gap: 2px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .language-switch a {
+      min-width: 38px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 750;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .language-switch a[aria-current="true"] {
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+
+    main {
+      padding: 36px 0 54px;
+    }
+
+    article {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-top: 32px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    p,
+    li {
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .notice {
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    footer {
+      padding: 0 0 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-actions,
+      nav {
+        justify-content: flex-start;
+      }
+
+      article {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="{{ home_url | relative_url }}">Rockhold</a>
+    <div class="header-actions">
+      <nav aria-label="{{ nav_label }}">
+        <a href="{{ privacy_url | relative_url }}" {% if document_key == 'privacy' %}aria-current="page"{% endif %}>{{ privacy_label }}</a>
+        <a href="{{ terms_url | relative_url }}" {% if document_key == 'terms' %}aria-current="page"{% endif %}>{{ terms_label }}</a>
+      </nav>
+      <div class="language-switch" aria-label="{{ language_label }}">
+        <a href="{{ en_url | relative_url }}" aria-current="{% unless is_ru %}true{% else %}false{% endunless %}">EN</a>
+        <a href="{{ ru_url | relative_url }}" aria-current="{% if is_ru %}true{% else %}false{% endif %}">RU</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <article>
+      {{ content }}
+    </article>
+  </main>
+  <footer>
+    {{ footer_text }}
+  </footer>
+</body>
+</html>
