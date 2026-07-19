@@ -14,7 +14,7 @@ App support: support@rockhold.ru.
 
 This Policy sets out how {{ site.data.legal.app_name }} (the “App”) processes and protects users’ personal data and the financial data entered by users in the App.
 
-The personal-data operator and RockHold service provider is Anton Sergeevich Parfenov (Парфенов Антон Сергеевич), acting as an individual (the “Operator”).
+The personal-data operator and RockHold service provider is Anton Sergeevich Parfenov (Парфенов Антон Сергеевич), acting as an individual (the “Operator”). The Operator’s official email address for personal-data matters is privacy@rockhold.ru.
 
 This Policy applies to data processed when the App is used, a RockHold account is created or used, a user contacts support, or server synchronization is used. It does not govern processing by third parties, including Apple, sign-in providers, iCloud, and file services selected by the user; their own notices and terms apply to such processing.
 
