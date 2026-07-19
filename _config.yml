@@ -1,0 +1,8 @@
+title: RockHold
+description: Legal and support documents for the RockHold production cloud MVP.
+baseurl: "/rockhold-legal"
+url: "https://a-parfenov.github.io"
+markdown: kramdown
+theme: null
+exclude:
+  - README.md
